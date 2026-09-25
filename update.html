@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Update employee information</title>
+    </head>
+
+    <body>
+        <form method=post action="uconn.php">
+            <h1 align="center">Update Employee Information</h1>
+            <table align="center">
+                <tr>
+                    <td>ID :</td>
+                    <td><input type="text" name="id"></td>
+                </tr>
+                <tr>
+                    <td>Name : </td>
+                    <td><input type="text" name="nam"></td>
+                </tr>
+                <tr>
+                    <td>Gender :</td>
+                    <td><input type="radio" name="g" value="Male">Male
+                        <input type="radio" name="g" value="Female">Female </td>
+                </tr>
+                <tr>
+                    <td>Post :</td>
+                    <td><select name="post">
+                            <option value="select">select</option>
+                            <option value="Employee">Employee</option>
+                            <option value="Manager">Manager</option>
+                            <option value="HR">HR</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Salary :</td>
+                    <td><input type="text" name="sal"></td>
+                </tr>
+                <tr>
+                    <td>City :</td>
+                    <td><input type="text" name="city"></td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2"><input type="submit" value="update">
+                        <a href="display.php">Display</a></td>
+                </tr>  
+            </table>
+        </form>
+    </body>
+</html>
