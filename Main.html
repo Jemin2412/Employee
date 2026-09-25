@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Insert Employee Information</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        .form-card {
+            width: 100%;
+            max-width: 520px;
+            padding: 32px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+        }
+
+        h1 {
+            margin: 0 0 24px;
+            text-align: center;
+            font-size: 26px;
+            color: #1d4ed8;
+        }
+
+        table {
+            width: 100%;
+            border-spacing: 0 14px;
+        }
+
+        td:first-child {
+            width: 110px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font: inherit;
+        }
+
+        input[type="text"]:focus,
+        select:focus {
+            outline: 2px solid #93c5fd;
+            border-color: #2563eb;
+        }
+
+        .gender-options {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .actions {
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: 0;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .display-link {
+            margin-left: 14px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .display-link:hover {
+            text-decoration: underline;
+        }        
+    </style>
+
+    <script>
+        function check() {
+            const form = document.forms.myform;
+            const gender = form.querySelector('input[name="g"]:checked');
+
+            if (
+                form.id.value.trim() === "" ||
+                form.nam.value.trim() === "" ||
+                !gender ||
+                form.post.value === "" ||
+                form.city.value.trim() === ""
+            ) {
+                alert("Enter ID, name, gender, post, and city.");
+                return;
+            }
+
+            form.submit();
+        }
+    </script>
+</head>
+
+<body>
+    <main class="form-card">
+        <h1>Insert Employee Information</h1>
+
+        <form name="myform" method="post" action="iconn.php">
+            <table>
+                <tr>
+                    <td><label for="id">ID:</label></td>
+                    <td><input type="text" id="id" name="id"></td>
+                </tr>
+                <tr>
+                    <td><label for="nam">Name:</label></td>
+                    <td><input type="text" id="nam" name="nam"></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td class="gender-options">
+                        <label><input type="radio" name="g" value="Male"> Male</label>
+                        <label><input type="radio" name="g" value="Female"> Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="post">Post:</label></td>
+                    <td>
+                        <select id="post" name="post">
+                            <option value="">Select a post</option>
+                            <option value="Employee">Employee</option>
+                            <option value="Manager">Manager</option>
+                            <option value="HR">HR</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="sal">Salary:</label></td>
+                    <td><input type="text" id="sal" name="sal"></td>
+                </tr>
+                <tr>
+                    <td><label for="city">City:</label></td>
+                    <td><input type="text" id="city" name="city"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="actions">
+                        <button type="button" onclick="check()">Insert</button>
+                        <a class="display-link" href="display.php">Display</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </main>
+</body>
+</html>
